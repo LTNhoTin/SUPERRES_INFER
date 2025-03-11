@@ -1,0 +1,26 @@
+name: "super_resolution"
+platform: "tensorrt_plan"
+max_batch_size: 0 
+
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP32
+    dims: [1, 1, 224, 224]
+  }
+]
+
+output [
+  {
+    name: "output"
+    data_type: TYPE_FP32
+    dims: [1, 1, 672, 672]
+  }
+]
+
+instance_group [
+  {
+    count: 1
+    kind: KIND_GPU
+  }
+]
